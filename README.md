@@ -1,0 +1,1 @@
+# odoo-school-hr_hospital3
