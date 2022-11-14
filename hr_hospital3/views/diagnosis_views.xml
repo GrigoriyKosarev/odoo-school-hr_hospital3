@@ -1,0 +1,41 @@
+<odoo>
+
+    <record id="hs3_diagnosis_tree" model="ir.ui.view">
+      <field name="name">hs3.diagnosis.tree ()</field>
+      <field name="model">hs3.diagnosis</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_diagnosis_form" model="ir.ui.view">
+        <field name="name">hs3.diagnosis.form ()</field>
+        <field name="model">hs3.diagnosis</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_diagnosis_act_window" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.diagnosis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_diagnosis_menu"
+              action="hs3_diagnosis_act_window"
+              parent="hs3_hospital_menu"
+              name="Diagnosis"
+              sequence="200"/>
+
+</odoo>
