@@ -21,7 +21,7 @@
                     <group>
                         <field name="full_name"/>
                         <field name="gender"/>
-                        <field name="birthday"/>
+                        <field name="birthday_date"/>
                         <field name="age"/>
                         <field name="passport"/>
                         <field name="contact_person"/>
