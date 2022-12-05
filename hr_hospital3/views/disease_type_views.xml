@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="hs3_disease_type_tree" model="ir.ui.view">
+      <field name="name">hs3.disease.type.tree ()</field>
+      <field name="model">hs3.disease.type</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="complete_name"/>
+            <field name="parent_id"/>
+            <field name="parent_path"/>
+            <field name="child_id"/>
+            <field name="disease_count"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_disease_type_form" model="ir.ui.view">
+        <field name="name">hs3.disease.type.form ()</field>
+        <field name="model">hs3.disease.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="complete_name"/>
+                        <field name="parent_id"/>
+                        <field name="parent_path"/>
+                        <field name="child_id"/>
+                        <field name="disease_count"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_disease_type_act_window" model="ir.actions.act_window">
+        <field name="name">Disease type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.disease.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_disease_type_menu"
+              action="hs3_disease_type_act_window"
+              parent="hs3_hospital_menu"
+              name="Disease type"
+              sequence="200"/>
+
+</odoo>

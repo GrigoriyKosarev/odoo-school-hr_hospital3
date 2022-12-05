@@ -1,5 +1,7 @@
-# -*- coding: utf-8 -*-
-
-from . import patient
-from . import doctor
-from . import diagnosis
+from . import (
+    patient,
+    doctor,
+    diagnosis,
+    disease,
+    disease_type,
+)
