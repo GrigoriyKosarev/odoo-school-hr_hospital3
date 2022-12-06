@@ -5,4 +5,5 @@ class Disease(models.Model):
     _description = 'Disease'
 
     name = fields.Char(required=True)
-    name1 = fields.Char(required=True)
+    category_id = fields.Many2one(
+        comodel_name='hs3.disease.type', )
