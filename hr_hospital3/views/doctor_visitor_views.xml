@@ -1,0 +1,49 @@
+<odoo>
+
+    <record id="hs3_doctor_visitor_tree" model="ir.ui.view">
+      <field name="name">hs3.doctor.visitor.tree ()</field>
+      <field name="model">hs3.doctor.visitor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="doctor_id"/>
+          <field name="patient_id"/>
+          <field name="date_admission"/>
+          <field name="diagnosis_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_doctor_visitor_form" model="ir.ui.view">
+        <field name="name">hs3.doctor.visitor.form ()</field>
+        <field name="model">hs3.doctor.visitor</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="doctor_id"/>
+                        <field name="patient_id"/>
+                        <field name="date_admission"/>
+                        <field name="diagnosis_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_doctor_visitor_act_window" model="ir.actions.act_window">
+        <field name="name">Doctor visitor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.doctor.visitor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_doctor_visitor_menu"
+              action="hs3_doctor_visitor_act_window"
+              parent="hs3_hospital_menu"
+              name="Doctor visitor"
+              sequence="200"/>
+
+</odoo>

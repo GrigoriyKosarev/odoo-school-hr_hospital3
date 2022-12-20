@@ -1,20 +1,19 @@
 <odoo>
 
-    <record id="hs3_doctor_tree" model="ir.ui.view">
-      <field name="name">hs3.doctor.tree ()</field>
-      <field name="model">hs3.doctor</field>
+    <record id="hs3_contact_tree" model="ir.ui.view">
+      <field name="name">hs3.contact.tree ()</field>
+      <field name="model">hs3.contact</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
           <field name="full_name"/>
-          <field name="specialty"/>
         </tree>
       </field>
     </record>
 
-    <record id="hs3_doctor_form" model="ir.ui.view">
-        <field name="name">hs3.doctor.form ()</field>
-        <field name="model">hs3.doctor</field>
+    <record id="hs3_contact_form" model="ir.ui.view">
+        <field name="name">hs3.contact.form ()</field>
+        <field name="model">hs3.contact</field>
         <field name="arch" type="xml">
             <form>
                 <header></header>
@@ -22,7 +21,6 @@
                     <group>
                         <field name="name"/>
                         <field name="full_name"/>
-                        <field name="specialty"/>
                         <field name="phone"/>
                         <field name="email"/>
                         <field name="photo"/>
@@ -33,17 +31,17 @@
         </field>
     </record>
 
-    <record id="hs3_doctor_act_window" model="ir.actions.act_window">
-        <field name="name">Doctor</field>
+    <record id="hs3_contact_act_window" model="ir.actions.act_window">
+        <field name="name">Contact</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hs3.doctor</field>
+        <field name="res_model">hs3.contact</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="hs3_doctor_menu"
-              action="hs3_doctor_act_window"
+    <menuitem id="hs3_contact_menu"
+              action="hs3_contact_act_window"
               parent="hs3_hospital_menu"
-              name="Doctor"
+              name="Contact"
               sequence="200"/>
 
 </odoo>

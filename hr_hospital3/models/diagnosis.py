@@ -4,6 +4,7 @@ class Diagnosis(models.Model):
     _name = 'hs3.diagnosis'
     _description = 'Diagnosis'
 
+    name = fields.Char(required=True)
     active = fields.Boolean(
         default=True, )
     doctor_id = fields.Many2one(

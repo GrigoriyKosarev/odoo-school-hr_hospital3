@@ -22,11 +22,14 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hs3_hospital_menu.xml',
+        'views/contact_views.xml',
         'views/patient_views.xml',
         'views/doctor_views.xml',
+        'views/doctor_visitor_views.xml',
         'views/diagnosis_views.xml',
         'views/disease_views.xml',
         'views/disease_type_views.xml',
+        'views/personal_doctor_history_views.xml',
     ],
 
     'demo': [

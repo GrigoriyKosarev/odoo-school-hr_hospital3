@@ -5,8 +5,9 @@
       <field name="model">hs3.patient</field>
       <field name="arch" type="xml">
         <tree>
+          <field name="name"/>
           <field name="full_name"/>
-          <field name="contact_person"/>
+          <field name="contact_id"/>
         </tree>
       </field>
     </record>
@@ -19,12 +20,18 @@
                 <header></header>
                 <sheet>
                     <group>
+                        <field name="contact_id"/>
+                        <field name="name"/>
                         <field name="full_name"/>
                         <field name="gender"/>
                         <field name="birthday_date"/>
                         <field name="age"/>
                         <field name="passport"/>
-                        <field name="contact_person"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="photo"/>
+                        <field name="gender"/>
+                        <field name="personal_doctor_id"/>
                     </group>
                 </sheet>
             </form>

@@ -1,0 +1,46 @@
+<odoo>
+
+    <record id="hs3_personal_doctor_history_tree" model="ir.ui.view">
+      <field name="name">hs3.personal.doctor.history.tree ()</field>
+      <field name="model">hs3.personal.doctor.history</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="patient_id"/>
+          <field name="doctor_id"/>
+          <field name="appointment_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_personal_doctor_history_form" model="ir.ui.view">
+        <field name="name">hs3.personal.doctor.history.form ()</field>
+        <field name="model">hs3.personal.doctor.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="appointment_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_personal_doctor_history_act_window" model="ir.actions.act_window">
+        <field name="name">Personal doctor history</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.personal.doctor.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_personal_doctor_history_menu"
+              action="hs3_personal_doctor_history_act_window"
+              parent="hs3_hospital_menu"
+              name="Personal doctor history"
+              sequence="200"/>
+
+</odoo>
