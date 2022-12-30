@@ -9,3 +9,9 @@ class Doctor(models.Model):
         default=True, )
     specialty = fields.Char(
         required=True, )
+    is_intern = fields.Boolean(
+        default=False, )
+    mentor_id = fields.Many2one(
+        comodel_name='hs3.doctor',
+        domain="[('is_intern','=',False)]",
+    )

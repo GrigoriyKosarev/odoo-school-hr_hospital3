@@ -20,6 +20,36 @@ class Patient(models.Model):
     personal_doctor_id = fields.Many2one(
         comodel_name='hs3.doctor', required=True, )
 
+
+    @api.constrains('contact_id', 'personal_doctor_id')
+    def check_fields(self):
+        for patient in self:
+            if patient.contact_id is False:
+                raise ValueError('Contact ')
+
+    @api.model_create_multi
+    def create(self, values):
+        print('+++start create+++')
+        print(values)
+        obj = super(Patient, self).create(values)
+        return obj
+
+    def write(self, values):
+        # print('+++start write+++')
+        for obj in self:
+            if 'personal_doctor_id' in values:
+                doctor_history_values = {
+                    'name': f'{obj.contact_id.name} - {obj.personal_doctor_id.name}',
+                    'active':True,
+                    'patient_id':obj.id,
+                    'doctor_id': values['personal_doctor_id'],
+                    'appointment_date': datetime.date.today()
+                }
+                self.env['hs3.personal.doctor.history'].create(doctor_history_values)
+
+        obj = super(Patient, self).write(values)
+        return obj
+
     @api.depends('birthday_date')
     def _compute_age(self):
         for obj in self:

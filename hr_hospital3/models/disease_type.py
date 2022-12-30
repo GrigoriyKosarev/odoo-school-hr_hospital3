@@ -13,9 +13,9 @@ class DiseaseType(models.Model):
     complete_name = fields.Char(
         'Complete Name', compute='_compute_complete_name', recursive=True,
         store=True)
-    parent_id = fields.Many2one('hs3.disease.type', 'Parent Disease', index=True, ondelete='cascade')
+    parent_id = fields.Many2one(comodel_name='hs3.disease.type', string='Parent Disease', index=True, ondelete='cascade')
     parent_path = fields.Char(index=True)
-    child_id = fields.One2many('hs3.disease.type', 'parent_id', 'Child Categories')
+    child_id = fields.One2many(comodel_name='hs3.disease.type', inverse_name='parent_id', string='Child Categories')
     disease_count = fields.Integer(
         '# Disease', compute='_compute_disease_type_count',
         help="Disease")
