@@ -1,6 +1,7 @@
 import datetime
 
 from odoo import models, fields, api, _
+from odoo.exceptions import UserError, ValidationError
 
 class DoctorVisitor(models.Model):
     _name = 'hs3.doctor.visitor'
@@ -23,8 +24,38 @@ class DoctorVisitor(models.Model):
     recommendation = fields.Char(
         string='Recommendation',
     )
+    research_id = fields.Many2one(
+        comodel_name='hs3.research', )
+    schedule_id = fields.Many2one(
+        comodel_name='hs3.schedule',
+        domain="[('finished','=',False)]",
+    )
+    finished = fields.Boolean(
+        string='finished', )
 
     @api.onchange('doctor_id', 'patient_id')
     def _onchange_set_name(self):
         for obj in self:
             obj.name = f'{obj.patient_id.name} - {obj.doctor_id.name}'
+
+    def write(self, vals):
+        res = super(DoctorVisitor, self).write(vals)
+        print(vals)
+        print(f"finished: {vals['finished']}")
+        if vals.get('finished'):
+            if self.schedule_id:
+                self.schedule_id.write({'finished': vals['finished']})
+        return res
+
+    @api.constrains('active')
+    def constrains_active(self):
+        for obj in self:
+            if not obj.active and obj.diagnosis_id:
+                raise ValidationError('can`t delete with diagnosis')
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_only_if_open(self):
+        for obj in self:
+            if obj.diagnosis_id:
+                raise ValidationError('can`t delete with diagnosis')
+

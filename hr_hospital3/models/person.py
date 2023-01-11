@@ -6,6 +6,8 @@ class PersonMixin(models.AbstractModel):
 
     name = fields.Char(
         string='Name', )
+    active = fields.Boolean(
+        default=True, )
     full_name = fields.Char(
         required=True,
         string='Full name',

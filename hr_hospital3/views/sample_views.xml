@@ -1,0 +1,41 @@
+<odoo>
+
+    <record id="hs3_sample_tree" model="ir.ui.view">
+      <field name="name">hs3.sample.tree ()</field>
+      <field name="model">hs3.sample</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_sample_form" model="ir.ui.view">
+        <field name="name">hs3.sample.form ()</field>
+        <field name="model">hs3.sample</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_sample_act_window" model="ir.actions.act_window">
+        <field name="name">Sample</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.sample</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_sample_menu"
+              action="hs3_sample_act_window"
+              parent="hs3_hospital_menu"
+              name="Sample"
+              sequence="200"/>
+
+</odoo>

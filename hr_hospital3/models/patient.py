@@ -29,13 +29,9 @@ class Patient(models.Model):
 
     @api.model_create_multi
     def create(self, values):
-        print('+++start create+++')
-        print(values)
-        obj = super(Patient, self).create(values)
-        return obj
+        return super(Patient, self).create(values)
 
     def write(self, values):
-        # print('+++start write+++')
         for obj in self:
             if 'personal_doctor_id' in values:
                 doctor_history_values = {
@@ -47,8 +43,7 @@ class Patient(models.Model):
                 }
                 self.env['hs3.personal.doctor.history'].create(doctor_history_values)
 
-        obj = super(Patient, self).write(values)
-        return obj
+        return super(Patient, self).write(values)
 
     @api.depends('birthday_date')
     def _compute_age(self):

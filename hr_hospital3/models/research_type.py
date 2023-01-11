@@ -6,8 +6,8 @@ class ResearchType(models.Model):
     _description = 'Research type'
     _parent_name = "parent_id"
     _parent_store = True
-    _rec_name = 'complete_name'
-    _order = 'complete_name'
+    _rec_name = 'name'
+    _order = 'name'
 
     name = fields.Char('Name', index=True, required=True)
     parent_id = fields.Many2one(comodel_name='hs3.research.type', string='Parent research', index=True,

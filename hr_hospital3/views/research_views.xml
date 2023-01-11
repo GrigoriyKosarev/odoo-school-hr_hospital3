@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="hs3_research_tree" model="ir.ui.view">
+      <field name="name">hs3.research.tree ()</field>
+      <field name="model">hs3.research</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="category_id"/>
+          <field name="patient_id"/>
+          <field name="doctor_id"/>
+          <field name="sample_id"/>
+          <field name="conclusion"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_research_form" model="ir.ui.view">
+        <field name="name">hs3.research.form ()</field>
+        <field name="model">hs3.research</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="sample_id"/>
+                        <field name="conclusion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_research_act_window" model="ir.actions.act_window">
+        <field name="name">Research</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.research</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_research_menu"
+              action="hs3_research_act_window"
+              parent="hs3_hospital_menu"
+              name="Research"
+              sequence="200"/>
+
+</odoo>

@@ -16,3 +16,5 @@ class Diagnosis(models.Model):
     date = fields.Datetime()
     purpose_of_diagnosis = fields.Char(
         required=True, string='Purpose of diagnosis')
+    research_id = fields.Many2one(
+        comodel_name='hs3.research', )

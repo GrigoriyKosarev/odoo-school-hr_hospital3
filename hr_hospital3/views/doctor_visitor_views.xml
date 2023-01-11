@@ -10,6 +10,9 @@
           <field name="patient_id"/>
           <field name="date_admission"/>
           <field name="diagnosis_id"/>
+          <field name="research_id"/>
+          <field name="schedule_id"/>
+          <field name="finished"/>
         </tree>
       </field>
     </record>
@@ -23,10 +26,14 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="active"/>
                         <field name="doctor_id"/>
                         <field name="patient_id"/>
                         <field name="date_admission"/>
                         <field name="diagnosis_id"/>
+                        <field name="research_id"/>
+                        <field name="schedule_id"/>
+                        <field name="finished"/>
                     </group>
                 </sheet>
             </form>

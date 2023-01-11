@@ -30,6 +30,11 @@
         'views/disease_views.xml',
         'views/disease_type_views.xml',
         'views/personal_doctor_history_views.xml',
+        'views/research_type_views.xml',
+        'views/research_views.xml',
+        'views/sample_views.xml',
+        'views/schedule_views.xml',
+        'wizard/patient_set_personal_doctor_wizard_views.xml',
     ],
 
     'demo': [

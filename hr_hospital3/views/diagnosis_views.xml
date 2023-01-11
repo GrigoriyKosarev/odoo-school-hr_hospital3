@@ -10,6 +10,7 @@
           <field name="doctor_id"/>
           <field name="patient_id"/>
           <field name="disease_id"/>
+          <field name="research_id"/>
         </tree>
       </field>
     </record>
@@ -28,6 +29,7 @@
                         <field name="patient_id"/>
                         <field name="disease_id"/>
                         <field name="purpose_of_diagnosis"/>
+                        <field name="research_id"/>
                     </group>
                 </sheet>
             </form>

@@ -1,0 +1,48 @@
+<odoo>
+    <record id="hs3_schedule_tree" model="ir.ui.view">
+      <field name="name">hs3.schedule.tree ()</field>
+      <field name="model">hs3.schedule</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="doctor_id"/>
+          <field name="date_from"/>
+          <field name="date_to"/>
+          <field name="finished"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="hs3_schedule_form" model="ir.ui.view">
+        <field name="name">hs3.schedule.form ()</field>
+        <field name="model">hs3.schedule</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="doctor_id"/>
+                        <field name="date_from" attrs="{'readonly' : [('finished', '!=', False)] }"/>
+                        <field name="date_to" attrs="{'readonly' : [('finished', '!=', False)] }"/>
+                        <field name="finished"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hs3_schedule_act_window" model="ir.actions.act_window">
+        <field name="name">Schedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hs3.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="hs3_schedule_menu"
+              action="hs3_schedule_act_window"
+              parent="hs3_hospital_menu"
+              name="Schedule"
+              sequence="200"/>
+
+</odoo>

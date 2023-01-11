@@ -8,4 +8,8 @@ from . import (
     contact,
     doctor_visitor,
     personal_doctor_history,
+    research,
+    research_type,
+    sample,
+    schedule,
 )

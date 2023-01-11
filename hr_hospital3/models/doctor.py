@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import models, fields, _, api
 
 class Doctor(models.Model):
     _name = 'hs3.doctor'
@@ -15,3 +15,7 @@ class Doctor(models.Model):
         comodel_name='hs3.doctor',
         domain="[('is_intern','=',False)]",
     )
+    @api.onchange('mentor_id')
+    def _compute_intern(self):
+        for obj in self:
+            obj.is_intern = obj.mentor_id
