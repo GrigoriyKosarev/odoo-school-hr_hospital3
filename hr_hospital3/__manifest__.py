@@ -34,7 +34,7 @@
         'views/research_views.xml',
         'views/sample_views.xml',
         'views/schedule_views.xml',
-        'wizard/patient_set_personal_doctor_wizard_views.xml',
+        'wizard/set_personal_doctor_wizard_views.xml',
     ],
 
     'demo': [
