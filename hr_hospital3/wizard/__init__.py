@@ -1,1 +1,1 @@
-from . import patient_set_personal_doctor_wizard
+from . import set_personal_doctor_wizard
