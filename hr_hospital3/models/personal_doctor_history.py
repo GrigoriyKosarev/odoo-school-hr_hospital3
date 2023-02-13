@@ -1,4 +1,4 @@
-from odoo import exceptions, models, api, fields, _
+from odoo import models, api, fields
 
 
 class PersonalDoctorHistory(models.Model):
@@ -23,8 +23,8 @@ class PersonalDoctorHistory(models.Model):
         for obj in self:
             patient_name = ''
             doctor_name = ''
-            if (obj.patient_id):
+            if obj.patient_id:
                 patient_name = obj.patient_id.name
-            if (obj.doctor_id):
+            if obj.doctor_id:
                 doctor_name = obj.doctor_id.name
             obj.name = f'{patient_name} - {doctor_name}'

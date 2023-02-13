@@ -1,4 +1,5 @@
-from odoo import models, fields, _
+from odoo import models, fields
+
 
 class Research(models.Model):
     _name = 'hs3.research'
@@ -6,8 +7,7 @@ class Research(models.Model):
 
     active = fields.Boolean(
         default=True, )
-    name = fields.Char(
-        string='Name', )
+    name = fields.Char()
     category_id = fields.Many2one(
         comodel_name='hs3.research.type', )
     patient_id = fields.Many2one(
@@ -16,5 +16,4 @@ class Research(models.Model):
         comodel_name='hs3.doctor', )
     sample_id = fields.Many2one(
         comodel_name='hs3.sample', )
-    conclusion = fields.Char(
-        string='Conclusion', )
+    conclusion = fields.Char()

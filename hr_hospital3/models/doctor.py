@@ -1,4 +1,5 @@
-from odoo import models, fields, _, api
+from odoo import models, fields, api
+
 
 class Doctor(models.Model):
     _name = 'hs3.doctor'

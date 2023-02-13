@@ -12,4 +12,5 @@ from . import (
     research_type,
     sample,
     schedule,
+    # demo_model,
 )

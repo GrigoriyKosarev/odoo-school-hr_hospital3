@@ -1,4 +1,5 @@
-from odoo import models, fields, _
+from odoo import models, fields
+
 
 class Disease(models.Model):
     _name = 'hs3.disease'

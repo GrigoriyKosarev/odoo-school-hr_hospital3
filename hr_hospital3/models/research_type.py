@@ -1,5 +1,6 @@
 from odoo import models, fields, _, api
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
+
 
 class ResearchType(models.Model):
     _name = 'hs3.research.type'
@@ -9,11 +10,15 @@ class ResearchType(models.Model):
     _rec_name = 'name'
     _order = 'name'
 
-    name = fields.Char('Name', index=True, required=True)
-    parent_id = fields.Many2one(comodel_name='hs3.research.type', string='Parent research', index=True,
+    name = fields.Char(index=True, required=True)
+    parent_id = fields.Many2one(comodel_name='hs3.research.type',
+                                string='Parent research',
+                                index=True,
                                 ondelete='cascade')
     parent_path = fields.Char(index=True)
-    child_id = fields.One2many(comodel_name='hs3.research.type', inverse_name='parent_id', string='Child Categories')
+    child_id = fields.One2many(comodel_name='hs3.research.type',
+                               inverse_name='parent_id',
+                               string='Child Categories')
 
     @api.constrains('parent_id')
     def _check_category_recursion(self):
@@ -23,5 +28,3 @@ class ResearchType(models.Model):
     @api.model
     def name_create(self, name):
         return self.create({'name': name}).name_get()[0]
-
-

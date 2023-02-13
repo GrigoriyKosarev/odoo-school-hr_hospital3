@@ -22,6 +22,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hs3_hospital_menu.xml',
+        'views/hs3_hospital_settings.xml',
         'views/contact_views.xml',
         'views/patient_views.xml',
         'views/doctor_views.xml',

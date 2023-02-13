@@ -4,11 +4,12 @@
       <field name="name">hs3.patient.tree ()</field>
       <field name="model">hs3.patient</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="full_name"/>
-          <field name="contact_id"/>
-        </tree>
+          <tree>
+              <field name="name"/>
+              <field name="full_name"/>
+              <field name="contact_id"/>
+              <field name="personal_doctor_id"/>
+          </tree>
       </field>
     </record>
 
@@ -18,6 +19,7 @@
         <field name="arch" type="xml">
             <form>
                 <header></header>
+<!--                <button name="wizard_set_personal_doctor" string="Set personal doctor (Wizard)" type="object"></button>-->
                 <sheet>
                     <group>
                         <field name="contact_id"/>
@@ -44,6 +46,29 @@
         <field name="res_model">hs3.patient</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+<!--    <record id="hs3_patient_act_window_sms_composer_multi" model="ir.actions.act_window">-->
+<!--        <field name="name">Send SMS Text Message</field>-->
+<!--        <field name="res_model">sms.composer</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="context">{-->
+<!--            'default_composition_mode': 'mass',-->
+<!--        }</field>-->
+<!--        <field name="binding_model_id" ref="crm.model_crm_lead"/>-->
+<!--        <field name="binding_view_types">list</field>-->
+<!--    </record>-->
+<!--    <record id="hs3_patient_act_window_sms_composer_single" model="ir.actions.act_window">-->
+<!--        <field name="name">Send SMS Text Message</field>-->
+<!--        <field name="res_model">sms.composer</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="context">{-->
+<!--            'default_composition_mode': 'comment',-->
+<!--        }</field>-->
+<!--        <field name="binding_model_id" ref="crm.model_crm_lead"/>-->
+<!--        <field name="binding_view_types">form</field>-->
+<!--    </record>-->
 
     <menuitem id="hs3_patient_menu"
               action="hs3_patient_act_window"

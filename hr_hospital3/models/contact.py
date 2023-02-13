@@ -1,4 +1,5 @@
-from odoo import exceptions, models, fields, api, _
+from odoo import models, fields
+
 
 class Contact(models.Model):
     _name = 'hs3.contact'
@@ -7,6 +8,3 @@ class Contact(models.Model):
 
     active = fields.Boolean(
         default=True, )
-
-
-

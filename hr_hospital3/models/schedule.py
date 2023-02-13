@@ -1,12 +1,12 @@
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import ValidationError
+
 
 class Schedule(models.Model):
     _name = 'hs3.schedule'
     _description = 'Schedule'
 
-    name = fields.Char(
-        string='Name', )
+    name = fields.Char()
     doctor_id = fields.Many2one(
         comodel_name='hs3.doctor', )
     date_from = fields.Datetime(
@@ -16,7 +16,7 @@ class Schedule(models.Model):
     finished = fields.Boolean(
         string='finished', )
 
-    @api.constrains('date_from','date_to')
+    @api.constrains('date_from', 'date_to')
     def _check_correct_date(self):
         for current in self:
             date_from_count = current.search_count(
@@ -34,15 +34,16 @@ class Schedule(models.Model):
                  ])
 
             if date_from_count != 0 or date_to_count != 0:
-                raise ValidationError('date to is not valid')
+                raise ValidationError(_('date to is not valid'))
 
     @api.onchange('date_from', 'date_to')
     def check_date(self):
         for obj in self:
             if obj.finished:
-                raise ValidationError('can`t modified finished schedule')
+                raise ValidationError(_('can`t modified finished schedule'))
 
     @api.onchange('date_from', 'date_to', 'doctor_id')
     def set_name(self):
         for obj in self:
-            obj.name = f'{obj.doctor_id.name} | {obj.date_from} - {obj.date_to}'
+            obj.name = f'{obj.doctor_id.name} | {obj.date_from} - ' \
+                       f'{obj.date_to}'

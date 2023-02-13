@@ -1,11 +1,11 @@
-from odoo import exceptions, models, fields, api, _
+from odoo import models, fields, api, _
+
 
 class PersonMixin(models.AbstractModel):
     _name = 'hs3.person.mixin'
     _description = 'Person mixin'
 
-    name = fields.Char(
-        string='Name', )
+    name = fields.Char()
     active = fields.Boolean(
         default=True, )
     full_name = fields.Char(
@@ -13,11 +13,11 @@ class PersonMixin(models.AbstractModel):
         string='Full name',
         )
     phone = fields.Char(
-        required=False, string='Phone', )
+        required=False, )
     email = fields.Char(
-        required=False, string='Email', )
+        required=False, )
     photo = fields.Binary(
-        required=False, string='Photo', )
+        required=False, )
     gender = fields.Selection(
         default='male',
         required=True,
